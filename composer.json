@@ -1,0 +1,70 @@
+{
+    "name": "maplerad/maplerad-laravel",
+    "description": "Laravel package for maplerad APIs",
+    "type": "library",
+    "homepage": "https://maplerad.com/",
+    "authors": [
+        {
+            "name": "Damilare Anjorin",
+            "email": "damilareanjorin1@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-filter": ["vendor/bin/phpunit --filter"],
+        "test:stan": ["vendor/bin/phpstan analyse --memory-limit=2G"],
+        "lint": ["vendor/bin/pint --test"],
+        "lint:fix": ["vendor/bin/pint -v"],
+        "ci": [
+            "@test",
+            "@lint",
+            "@test:stan"
+        ]
+    },
+    "scripts-descriptions": {
+        "lint:fix": "Run Laravel Pint code styling.",
+        "lint": "Run Laravel Pint code styling check.",
+        "test:stan": "Run PHPStan against code base.",
+        "test:unit": "Run test suite.",
+        "test": "Run all tests."
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9|^10.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^v1.22.6|^2.6.1",
+        "mockery/mockery": "^1.5.1",
+        "laravel/pint": "^1.10",
+        "nunomaduro/larastan": "^2.6",
+        "orchestra/testbench": "^7.0|^8.0",
+        "phpunit/phpunit": "^9|^10"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maplerad\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maplerad\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maplerad\\Laravel\\MapleradServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
