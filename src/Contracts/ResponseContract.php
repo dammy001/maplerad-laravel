@@ -9,8 +9,6 @@ use Illuminate\Contracts\Support\Arrayable;
 /**
  * @template TArray of array
  *
- * @extends Arrayable
- *
  * @internal
  */
 interface ResponseContract extends Arrayable

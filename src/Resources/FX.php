@@ -12,7 +12,7 @@ final class FX
 {
     use Transportable;
 
-    public function generateQuote(string $sourceCurrency, string $targetCurrency, float|int $amount)
+    public function generateQuote(string $sourceCurrency, string $targetCurrency, float|int $amount): QuoteResponse
     {
         $payload = Payload::create(
             'fx/quote',

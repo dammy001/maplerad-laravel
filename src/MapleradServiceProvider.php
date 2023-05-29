@@ -47,12 +47,12 @@ final class MapleradServiceProvider extends ServiceProvider implements Deferrabl
 
             return new MapleradClient(
                 transporter: Http::baseUrl(
-                    BaseUri::from($config->get('maplerad.domain'))->toString()
+                    BaseUri::from((string) $config->get('maplerad.domain'))->toString()
                 )
                     ->asJson()
                     ->acceptJson()
-                    ->timeout($config->get('maplerad.request_timeout', 30))
-                    ->withToken($secretKey)
+                    ->timeout((int) $config->get('maplerad.request_timeout', 30))
+                    ->withToken((string) $secretKey)
             );
         });
 

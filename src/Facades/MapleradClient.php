@@ -4,6 +4,7 @@ namespace Maplerad\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Maplerad\Laravel\Resources\Customers;
+use Maplerad\Laravel\Resources\Issuing;
 
 final class MapleradClient extends Facade
 {
@@ -12,7 +13,7 @@ final class MapleradClient extends Facade
         return MapleradClient::getFacadeRoot()->customers();
     }
 
-    public static function issuing(): Customers
+    public static function issuing(): Issuing
     {
         return MapleradClient::getFacadeRoot()->issuing();
     }
