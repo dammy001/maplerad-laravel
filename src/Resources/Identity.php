@@ -16,7 +16,7 @@ final class Identity
     /**
      * @throws RequestException
      */
-    public function verifyBvn(string $bvn)
+    public function verifyBvn(string $bvn): VerifyBvnResponse
     {
         $payload = Payload::create('identity/bvn', ['bvn' => $bvn]);
 
