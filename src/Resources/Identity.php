@@ -14,6 +14,10 @@ final class Identity
     use Transportable;
 
     /**
+     * Verify bvn
+     *
+     * @see https://maplerad.dev/reference/verify-bvn
+     *
      * @throws RequestException
      */
     public function verifyBvn(string $bvn): VerifyBvnResponse

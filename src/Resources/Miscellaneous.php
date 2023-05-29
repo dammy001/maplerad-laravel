@@ -14,6 +14,8 @@ final class Miscellaneous
     use Transportable;
 
     /**
+     * Get list of available currencies
+     *
      * @throws RequestException
      */
     public function currencies(): CurrenciesResponse

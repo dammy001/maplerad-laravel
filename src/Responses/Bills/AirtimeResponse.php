@@ -7,12 +7,12 @@ namespace Maplerad\Laravel\Responses\Bills;
 final class AirtimeResponse
 {
     public function __construct(
-     public readonly string $id,
-     public readonly int|float $amount,
-     public readonly string $phoneNumber,
-     public readonly string $network,
-     public readonly int|float $debitAmount,
-     public readonly int|float $commissionEarned
+        public readonly string $id,
+        public readonly int|float $amount,
+        public readonly string $phoneNumber,
+        public readonly string $network,
+        public readonly int|float $debitAmount,
+        public readonly int|float $commissionEarned
     ) {
     }
 

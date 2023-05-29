@@ -14,6 +14,11 @@ final class FX
     use Transportable;
 
     /**
+     * Generates a foreign exchange quote.
+     * Generating a quote is the first step to processing a currency exchange
+     *
+     * @see https://maplerad.dev/reference/generate-fx-quote
+     *
      * @throws RequestException
      */
     public function generateQuote(string $sourceCurrency, string $targetCurrency, float|int $amount): QuoteResponse
@@ -33,6 +38,10 @@ final class FX
     }
 
     /**
+     * Processes the currency exchange
+     *
+     * @see https://maplerad.dev/reference/exchange-currency
+     *
      * @throws RequestException
      */
     public function exchangeCurrency(string $reference): QuoteResponse
@@ -45,6 +54,10 @@ final class FX
     }
 
     /**
+     * Get a list of all FX transactions processed.
+     *
+     * @see https://maplerad.dev/reference/get-fx-history
+     *
      * @throws RequestException
      */
     public function history(): mixed

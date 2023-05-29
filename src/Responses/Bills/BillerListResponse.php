@@ -7,7 +7,8 @@ namespace Maplerad\Laravel\Responses\Bills;
 final class BillerListResponse
 {
     public function __construct(public readonly array $data)
-    {}
+    {
+    }
 
     public static function from(array $attributes): self
     {
