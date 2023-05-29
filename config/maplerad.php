@@ -11,7 +11,7 @@ return [
         |
         */
 
-    'secret_key' => env('RESEND_SECRET_KEY'),
+    'secret_key' => env('MAPLERAD_SECRET_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,4 +40,6 @@ return [
         'tolerance' => env('MAPLERAD_WEBHOOK_TOLERANCE', 300),
         'events' => [],
     ],
+
+    'locale' => 'en'
 ];
