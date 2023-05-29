@@ -91,7 +91,9 @@ final class MapleradServiceProvider extends ServiceProvider implements Deferrabl
     public function provides(): array
     {
         return [
-            MapleradClientContract::class
+            MapleradClient::class,
+            MapleradClientContract::class,
+            'maplerad'
         ];
     }
 }

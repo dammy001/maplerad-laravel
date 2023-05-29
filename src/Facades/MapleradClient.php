@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Maplerad\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;

@@ -7,20 +7,20 @@ namespace Maplerad\Laravel\Responses\FX;
 final class QuoteResponse
 {
     public function __construct(
-        public readonly string $reference,
         public readonly array $source,
         public readonly array $target,
-        public readonly int|float $rate
+        public readonly int|float $rate,
+        public readonly string|null $reference,
     ) {
     }
 
     public static function from(array $attributes): self
     {
         return new self(
-            $attributes['reference'],
             QuoteResponse::toReadable($attributes['source']),
             QuoteResponse::toReadable($attributes['target']),
-            $attributes['rate']
+            $attributes['rate'],
+            $attributes['reference'] ?? null,
         );
     }
 

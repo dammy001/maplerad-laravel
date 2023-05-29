@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Maplerad\Laravel\Resources;
 
+use Illuminate\Http\Client\RequestException;
 use Maplerad\Laravel\Concerns\Transportable;
 use Maplerad\Laravel\Responses\FX\QuoteResponse;
 use Maplerad\Laravel\ValueObjects\Transporter\Payload;
@@ -12,6 +13,9 @@ final class FX
 {
     use Transportable;
 
+    /**
+     * @throws RequestException
+     */
     public function generateQuote(string $sourceCurrency, string $targetCurrency, float|int $amount): QuoteResponse
     {
         $payload = Payload::create(
@@ -23,18 +27,30 @@ final class FX
             ]
         );
 
-        $result = $this->transporter->post($payload->uri, $payload->parameters);
+        $result = $this->transporter->post($payload->uri, $payload->parameters)->throw();
 
         return QuoteResponse::from((array) $result->json('data'));
     }
 
-    public function exchangeCurrency()
+    /**
+     * @throws RequestException
+     */
+    public function exchangeCurrency(string $reference): QuoteResponse
     {
+        $payload = Payload::create('fx', ['quote_reference' => $reference]);
 
+        $result = $this->transporter->post($payload->uri, $payload->parameters)->throw();
+
+        return QuoteResponse::from((array) $result->json('data'));
     }
 
-    public function history()
+    /**
+     * @throws RequestException
+     */
+    public function history(): mixed
     {
+        $payload = Payload::list('fx');
 
+        return $this->transporter->get($payload->uri)->throw()->json('data');
     }
 }

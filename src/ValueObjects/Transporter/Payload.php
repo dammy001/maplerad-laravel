@@ -47,6 +47,6 @@ final class Payload
      */
     public static function retrieve(string $uri, string $param, string $suffix = ''): self
     {
-        return new self(Method::GET, "{$uri}/{$param}{$suffix}");
+        return new self(Method::GET, "$uri/{$param}{$suffix}");
     }
 }
