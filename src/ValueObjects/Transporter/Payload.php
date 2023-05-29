@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Maplerad\Laravel\ValueObjects\Transporter;
 
-use Maplerad\Laravel\Enums\Method;
+use Maplerad\Laravel\Enums\Transporters\Method;
 
 /**
  * @internal
@@ -48,5 +48,25 @@ final class Payload
     public static function retrieve(string $uri, string $param, string $suffix = ''): self
     {
         return new self(Method::GET, "$uri/{$param}{$suffix}");
+    }
+
+    /**
+     * Creates a new Payload value object from the given parameters.
+     */
+    public static function delete(string $uri, string $id): self
+    {
+        $method = Method::DELETE;
+
+        return new self($method, "$uri/$id");
+    }
+
+    /**
+     * Creates a new Payload value object from the given parameters.
+     */
+    public static function update(string $uri, string $id = ''): self
+    {
+        $method = Method::PATCH;
+
+        return new self($method, "$uri/$id");
     }
 }

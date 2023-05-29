@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Maplerad\Laravel\Enums;
+namespace Maplerad\Laravel\Enums\Transporters;
 
 /**
  * @internal
@@ -10,7 +10,12 @@ namespace Maplerad\Laravel\Enums;
 enum Method: string
 {
     case GET = 'GET';
+
     case POST = 'POST';
+
     case PUT = 'PUT';
+
     case DELETE = 'DELETE';
+
+    case PATCH = 'PATCH';
 }
