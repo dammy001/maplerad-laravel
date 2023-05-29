@@ -14,6 +14,7 @@ use Maplerad\Laravel\Resources\Issuing;
 use Maplerad\Laravel\Resources\Miscellaneous;
 use Maplerad\Laravel\Resources\Transactions;
 use Maplerad\Laravel\Resources\Transfers;
+use Maplerad\Laravel\Resources\Wallet;
 
 interface MapleradClientContract
 {
@@ -76,4 +77,10 @@ interface MapleradClientContract
      *
      */
     public function miscellaneous(): Miscellaneous;
+
+    /**
+     * Return the miscellaneous object
+     *
+     */
+    public function wallet(): Wallet;
 }

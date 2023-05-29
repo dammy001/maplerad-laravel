@@ -27,8 +27,7 @@ final class VerifyBvnResponse implements ResponseContract
         public readonly string $maritalStatus,
         public readonly string $nationality,
         public readonly string|null $image,
-    )
-    {
+    ) {
     }
 
     public static function from(array $attributes): self

@@ -23,6 +23,6 @@ final class Maplerad
     {
         Maplerad::$registersRoutes = false;
 
-        return new Maplerad;
+        return new Maplerad();
     }
 }

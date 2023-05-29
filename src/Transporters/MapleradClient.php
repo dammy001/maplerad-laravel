@@ -15,6 +15,7 @@ use Maplerad\Laravel\Resources\Issuing;
 use Maplerad\Laravel\Resources\Miscellaneous;
 use Maplerad\Laravel\Resources\Transfers;
 use Maplerad\Laravel\Resources\Transactions;
+use Maplerad\Laravel\Resources\Wallet;
 
 final class MapleradClient implements MapleradClientContract
 {
@@ -96,6 +97,14 @@ final class MapleradClient implements MapleradClientContract
     public function miscellaneous(): Miscellaneous
     {
         return new Miscellaneous($this->transporter);
+    }
+
+    /**
+     * Returns wallet class instance.
+     */
+    public function wallet(): Wallet
+    {
+        return new Wallet($this->transporter);
     }
 
     /**

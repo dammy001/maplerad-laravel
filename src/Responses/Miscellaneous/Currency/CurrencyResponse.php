@@ -9,10 +9,10 @@ use Maplerad\Laravel\Contracts\ResponseContract;
 final class CurrencyResponse implements ResponseContract
 {
     public function __construct(
-     public readonly string $name,
-     public readonly string $currency,
-     public readonly string $symbol
-    ){
+        public readonly string $name,
+        public readonly string $currency,
+        public readonly string $symbol
+    ) {
     }
 
     public static function from(array $attributes): self
