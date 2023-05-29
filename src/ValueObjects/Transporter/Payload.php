@@ -17,9 +17,9 @@ final class Payload
      * @param  array<string, mixed>  $parameters
      */
     private function __construct(
-        private readonly Method $method,
-        private readonly string $uri,
-        private readonly array $parameters = [],
+        public readonly Method $method,
+        public readonly string $uri,
+        public readonly array $parameters = [],
     ) {
         // ..
     }

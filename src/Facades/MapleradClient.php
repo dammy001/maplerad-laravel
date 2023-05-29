@@ -12,6 +12,11 @@ final class MapleradClient extends Facade
         return MapleradClient::getFacadeRoot()->customers();
     }
 
+    public static function issuing(): Customers
+    {
+        return MapleradClient::getFacadeRoot()->issuing();
+    }
+
     /**
      * Get the registered name of the component.
      */

@@ -15,4 +15,14 @@ final class Maplerad
      * Indicates if Maplerad routes will be registered.
      */
     public static bool $registersRoutes = true;
+
+    /**
+     * Configure Maplerad to not register its routes.
+     */
+    public static function ignoreRoutes(): Maplerad
+    {
+        Maplerad::$registersRoutes = false;
+
+        return new Maplerad;
+    }
 }
