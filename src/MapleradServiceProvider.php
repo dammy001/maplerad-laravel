@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 use Maplerad\Laravel\Contracts\MapleradClientContract;
 use Maplerad\Laravel\Exceptions\ConfigurationException;
-use Maplerad\Laravel\Transporters\MapleradClientTransporter;
+use Maplerad\Laravel\Transporters\MapleradClient;
 use Maplerad\Laravel\ValueObjects\Transporter\BaseUri;
 
-class MapleradServiceProvider extends ServiceProvider implements DeferrableProvider
+final class MapleradServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Bootstrap any package services.
@@ -45,7 +45,7 @@ class MapleradServiceProvider extends ServiceProvider implements DeferrableProvi
                 throw ConfigurationException::noSecretKey();
             }
 
-            return new MapleradClientTransporter(
+            return new MapleradClient(
                 transporter: Http::baseUrl(
                     BaseUri::from($config->get('maplerad.domain'))->toString()
                 )
@@ -57,7 +57,7 @@ class MapleradServiceProvider extends ServiceProvider implements DeferrableProvi
         });
 
         $this->app->alias(MapleradClientContract::class, 'maplerad');
-        $this->app->alias(MapleradClientContract::class, MapleradClientTransporter::class);
+        $this->app->alias(MapleradClientContract::class, MapleradClient::class);
     }
 
     /**

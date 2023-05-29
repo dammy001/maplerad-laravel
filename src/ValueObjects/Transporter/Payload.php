@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Maplerad\Laravel\ValueObjects\Transporter;
 
 use Maplerad\Laravel\Enums\Method;

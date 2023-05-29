@@ -16,7 +16,7 @@ use Maplerad\Laravel\Resources\Miscellaneous;
 use Maplerad\Laravel\Resources\Transfers;
 use Maplerad\Laravel\Resources\Transactions;
 
-final class MapleradClientTransporter implements MapleradClientContract
+final class MapleradClient implements MapleradClientContract
 {
     /**
      * Creates a Client instance with the given API token.

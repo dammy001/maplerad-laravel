@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Maplerad\Laravel\Contracts;
 
 use Illuminate\Http\Client\PendingRequest;

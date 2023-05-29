@@ -9,4 +9,9 @@ use Maplerad\Laravel\Concerns\Transportable;
 final class Identity
 {
     use Transportable;
+
+    public function verifyBvn(string $bvn)
+    {
+
+    }
 }
