@@ -28,7 +28,7 @@ final class FX
             [
                 'source_currency' => $sourceCurrency,
                 'target_currency' => $targetCurrency,
-                'amount' => $amount
+                'amount' => $amount * 100
             ]
         );
 
