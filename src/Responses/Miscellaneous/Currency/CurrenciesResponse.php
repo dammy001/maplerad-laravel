@@ -15,7 +15,7 @@ final class CurrenciesResponse implements ResponseContract
     public static function from(array $attributes): self
     {
         $currencies = ! empty($attributes) ? array_map(
-            callback: fn (array $currency): CurrencyResponse => CurrencyResponse::from($currency),
+            callback: fn (array $currency): array => CurrencyResponse::from($currency)->toArray(),
             array: $attributes
         ) : [];
 
