@@ -129,7 +129,7 @@ final class Issuing
      *
      * @throws RequestException
      */
-    public function listCards(array $queryParams = []): ListCardResponse
+    public function cards(array $queryParams = []): ListCardResponse
     {
         $query = Arr::query([
             ...$queryParams,
