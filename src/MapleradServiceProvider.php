@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Maplerad\Laravel;
 
+use Illuminate\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
@@ -38,7 +39,7 @@ final class MapleradServiceProvider extends ServiceProvider implements Deferrabl
      */
     protected function bindMapleradClient(): void
     {
-        $this->app->singleton(MapleradClientContract::class, static function (Application $app) {
+        $this->app->singleton(MapleradClientContract::class, static function (Application|Container $app) {
             $config = $app->make('config');
 
             if (empty($secretKey = $config->get('maplerad.secret_key'))) {
