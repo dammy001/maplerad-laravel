@@ -1,4 +1,5 @@
 <?php
+
 // Generate test for API key value object...
 
 use Maplerad\Laravel\ValueObjects\Transporter\BaseUri;
