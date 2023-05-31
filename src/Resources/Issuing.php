@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Maplerad\Laravel\Resources;
 
 use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Arr;
 use Maplerad\Laravel\Concerns\Transportable;
 use Maplerad\Laravel\Enums\Resources\Issuing\Brand;
 use Maplerad\Laravel\Enums\Resources\Issuing\Currency;
@@ -131,14 +130,14 @@ final class Issuing
      */
     public function cards(array $queryParams = []): ListCardResponse
     {
-        $query = Arr::query([
-            ...$queryParams,
-            ...(empty($queryParams['page']) ? ['page' => 1] : [])
-        ]);
+        $payload = Payload::list("issuing");
 
-        $payload = Payload::list("issuing?$query");
-
-        $result = $this->transporter->get($payload->uri)->throw();
+        $result = $this->transporter->withOptions([
+            'query' => [
+                ...$queryParams,
+                ...(empty($queryParams['page']) ? ['page' => 1] : [])
+            ]
+        ])->get($payload->uri)->throw();
 
         return ListCardResponse::from((array) $result->json());
     }

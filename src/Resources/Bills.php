@@ -8,6 +8,7 @@ use Illuminate\Http\Client\RequestException;
 use Maplerad\Laravel\Concerns\Transportable;
 use Maplerad\Laravel\Responses\Bills\AirtimeResponse;
 use Maplerad\Laravel\Responses\Bills\BillerListResponse;
+use Maplerad\Laravel\Responses\Bills\BillHistoryResponse;
 use Maplerad\Laravel\ValueObjects\Transporter\Payload;
 
 final class Bills
@@ -44,8 +45,29 @@ final class Bills
             parameters: ['phone_number' => $phoneNumber, 'amount' => $amount, 'identifier' => $identifier]
         );
 
-        $result = $this->transporter->post($payload->uri, $payload->parameters)->throw();
+        $result = $this->transporter
+            ->post($payload->uri, $payload->parameters)
+            ->throw();
 
         return AirtimeResponse::from((array) $result->json('data'));
+    }
+
+    /**
+     * retrieves all airtime purchase history
+     *
+     * @see https://maplerad.dev/reference/get-airtime-history
+     *
+     * @throws RequestException
+     */
+    public function history(int $page = 1): BillHistoryResponse
+    {
+        $payload = Payload::list('bills/airtime');
+
+        $result = $this->transporter
+            ->withOptions(['query' => ['page' => $page]])
+            ->get($payload->uri)
+            ->throw();
+
+        return BillHistoryResponse::from((array) $result->json());
     }
 }

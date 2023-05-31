@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Maplerad\Laravel\Responses\Bills;
 
-final class AirtimeResponse
+use Maplerad\Laravel\Contracts\ResponseContract;
+
+final class AirtimeResponse implements ResponseContract
 {
     public function __construct(
         public readonly string $id,
@@ -26,5 +28,17 @@ final class AirtimeResponse
             $attributes['debit_amount'],
             $attributes['commission_earned']
         );
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'amount' => $this->amount,
+            'phone_number' => $this->phoneNumber,
+            'network' => $this->network,
+            'debit_amount' => $this->debitAmount,
+            'commission_earned' => $this->commissionEarned
+        ];
     }
 }

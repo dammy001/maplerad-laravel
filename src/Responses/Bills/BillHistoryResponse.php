@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Maplerad\Laravel\Responses\Issuing;
+namespace Maplerad\Laravel\Responses\Bills;
 
-use Maplerad\Laravel\Contracts\ResponseContract;
-
-final class ListCardResponse implements ResponseContract
+final class BillHistoryResponse
 {
+    /**
+     * @param array<int, AirtimeResponse> $data
+     * @param array $meta
+     */
     public function __construct(
         public readonly array $data,
         public readonly array $meta
@@ -17,7 +19,7 @@ final class ListCardResponse implements ResponseContract
     public static function from(array $attributes): self
     {
         $data = array_map(
-            fn (array $attribute): CardResponse => CardResponse::from($attribute),
+            fn (array $attribute): AirtimeResponse => AirtimeResponse::from($attribute),
             $attributes['data']
         );
 
@@ -27,7 +29,7 @@ final class ListCardResponse implements ResponseContract
     public function toArray(): array
     {
         return [
-            'data' => array_map(fn (CardResponse $attribute) => $attribute->toArray(), $this->data),
+            'data' => array_map(fn (AirtimeResponse $attribute) => $attribute->toArray(), $this->data),
             'meta' => $this->meta
         ];
     }
