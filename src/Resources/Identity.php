@@ -24,9 +24,7 @@ final class Identity
     {
         $payload = Payload::create('identity/bvn', ['bvn' => $bvn]);
 
-        $result = $this->transporter
-            ->post($payload->uri, $payload->parameters)
-            ->throwIfServerError();
+        $result = $this->transporter->post($payload->uri, $payload->parameters)->throw();
 
         return VerifyBvnResponse::from(attributes: (array) $result->json('data'));
     }
