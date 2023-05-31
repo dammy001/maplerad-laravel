@@ -63,15 +63,4 @@ final class MapleradClient extends Facade
     {
         return 'maplerad';
     }
-
-//    /**
-//     * @param  array<array-key, mixed> $responses
-//     */
-//    public static function fake(array $responses = []) /** @phpstan-ignore-line */
-//    {
-//        $fake = new OpenAIFake($responses);
-//        self::swap($fake);
-//
-//        return $fake;
-//    }
 }
