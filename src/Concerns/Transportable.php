@@ -6,6 +6,8 @@ use Illuminate\Http\Client\PendingRequest;
 
 trait Transportable
 {
+    use ValidatesResponse;
+
     /**
      * Creates a Client instance with the given API token.
      */
