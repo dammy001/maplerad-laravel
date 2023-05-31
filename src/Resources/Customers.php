@@ -136,7 +136,7 @@ final class Customers
      *
      * @throws RequestException
      */
-    public function blacklist(string $customerId)
+    public function blacklist(string $customerId): bool
     {
         $payload = Payload::create("customers/$customerId/active", [
             'blacklist' => true
@@ -152,7 +152,7 @@ final class Customers
      *
      * @throws RequestException
      */
-    public function whitelist(string $customerId)
+    public function whitelist(string $customerId): bool
     {
         $payload = Payload::create("customers/$customerId/active", [
             'blacklist' => false
