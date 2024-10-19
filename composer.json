@@ -43,7 +43,7 @@
         "laravel/pint": "^1.10",
         "nunomaduro/larastan": "^2.6",
         "orchestra/testbench": "^7.0|^8.0",
-        "phpunit/phpunit": "^9|^10"
+        "phpunit/phpunit": "11.4.2"
     },
     "license": "MIT",
     "autoload": {
