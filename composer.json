@@ -41,7 +41,7 @@
         "pestphp/pest": "^v1.22.6|^2.6.1",
         "mockery/mockery": "^1.5.1",
         "laravel/pint": "^1.10",
-        "nunomaduro/larastan": "^2.6",
+        "nunomaduro/larastan": "^3.0",
         "orchestra/testbench": "^7.0|^8.0",
         "phpunit/phpunit": "^9|^10"
     },
